@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:padding="@dimen/activity_horizontal_margin"
-    tools:context="com.lambton.sms_email_phonecall_example.PhoneCallFragment">
+    tools:context="com.lambton.sms_email_phonecall_example.fragments.PhoneCallFragment">
 
 
     <android.support.design.widget.TextInputLayout

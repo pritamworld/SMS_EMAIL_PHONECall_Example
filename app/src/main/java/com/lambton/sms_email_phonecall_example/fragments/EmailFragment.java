@@ -1,4 +1,4 @@
-package com.lambton.sms_email_phonecall_example;
+package com.lambton.sms_email_phonecall_example.fragments;
 
 
 import android.content.Intent;
@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.lambton.sms_email_phonecall_example.R;
 
 import java.io.File;
 

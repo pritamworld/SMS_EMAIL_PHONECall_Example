@@ -8,6 +8,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.lambton.sms_email_phonecall_example.fragments.EmailFragment;
+import com.lambton.sms_email_phonecall_example.fragments.PhoneCallFragment;
+import com.lambton.sms_email_phonecall_example.fragments.SMSFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     FragmentManager fragmentManager;

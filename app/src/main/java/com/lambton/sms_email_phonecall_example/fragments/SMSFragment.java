@@ -1,4 +1,4 @@
-package com.lambton.sms_email_phonecall_example;
+package com.lambton.sms_email_phonecall_example.fragments;
 
 
 import android.content.Intent;
@@ -14,27 +14,33 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.lambton.sms_email_phonecall_example.R;
+
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import butterknife.ButterKnife;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PhoneCallFragment extends Fragment {
+public class SMSFragment extends Fragment {
 
 
     @BindView(R.id.input_phone_number)
     EditText inputPhoneNumber;
     @BindView(R.id.input_layout_phone_number)
     TextInputLayout inputLayoutPhoneNumber;
-    @BindView(R.id.btnPhoneCall)
-    Button btnPhoneCall;
+    @BindView(R.id.input_text)
+    EditText inputText;
+    @BindView(R.id.input_layout_text)
+    TextInputLayout inputLayoutText;
+    @BindView(R.id.btnSms)
+    Button btnSms;
     //Unbinder unbinder;
 
-    public PhoneCallFragment() {
+    public SMSFragment() {
         // Required empty public constructor
     }
 
@@ -43,7 +49,7 @@ public class PhoneCallFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_phone_call, container, false);
+        View view = inflater.inflate(R.layout.fragment_sms, container, false);
         ButterKnife.bind(this, view);
         return view;
     }
@@ -54,22 +60,24 @@ public class PhoneCallFragment extends Fragment {
         //unbinder.unbind();
     }
 
-    @OnClick(R.id.btnPhoneCall)
+    @OnClick(R.id.btnSms)
     public void onViewClicked() {
+
+        String message = inputText.getText().toString();
         String phoneNo = inputPhoneNumber.getText().toString();
-        if(!TextUtils.isEmpty(phoneNo)) {
-            String dial = "tel:" + phoneNo;
-            Intent phoneItent = new Intent(Intent.ACTION_DIAL, Uri.parse(dial));
-            if(phoneItent.resolveActivity(getActivity().getPackageManager()) != null)
+        if(!TextUtils.isEmpty(message) && !TextUtils.isEmpty(phoneNo)) {
+            Intent smsIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:" + phoneNo));
+            smsIntent.putExtra("sms_body", message);
+            if(smsIntent.resolveActivity(getActivity().getPackageManager()) != null)
             {
-                startActivity(phoneItent);
+                startActivity(smsIntent);
+                Toast.makeText(getActivity(),"SMS Sent",Toast.LENGTH_SHORT).show();
             }
             else
             {
-                Toast.makeText(getActivity(),"No application to handle Phone call",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"No application to handle SMS",Toast.LENGTH_SHORT).show();
             }
-        }else {
-            Toast.makeText(getActivity(), "Enter a phone number", Toast.LENGTH_SHORT).show();
         }
+
     }
 }
