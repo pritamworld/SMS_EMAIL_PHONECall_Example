@@ -29,12 +29,14 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction.replace(R.id.content, new SMSFragment());
                     fragmentTransaction.commit();
                     return true;
+
                 case R.id.navigation_phone_call:
                     fragmentManager = getSupportFragmentManager();
                     fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.content, new PhoneCallFragment());
                     fragmentTransaction.commit();
                     return true;
+
                 case R.id.navigation_email:
                     fragmentManager = getSupportFragmentManager();
                     fragmentTransaction = fragmentManager.beginTransaction();
