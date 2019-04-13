@@ -41,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction.replace(R.id.content, new EmailFragment());
                     fragmentTransaction.commit();
                     return true;
+
+                case R.id.navigation_location:
+                    fragmentManager = getSupportFragmentManager();
+                    fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.content, new LocationFragment());
+                    fragmentTransaction.commit();
+                    return true;
             }
             return false;
         }

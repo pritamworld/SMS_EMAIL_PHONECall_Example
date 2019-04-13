@@ -6,15 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MyLocationActivity">
+    tools:context=".LocationFragment">
 
     <Button
         android:id="@+id/btnOpenLocation"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:onClick="showTajMahal"
-        android:text="Taj Mahal"
-        />
+        android:text="Taj Mahal"/>
 
     <WebView
         android:id="@+id/wvLocation"
