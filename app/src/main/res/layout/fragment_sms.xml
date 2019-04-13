@@ -38,4 +38,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Send SMS" />
+
+    <TextView
+        android:id="@+id/txtClickTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:linksClickable="false"
+        android:text="Call to get help  +1 234 567 8900"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
 </LinearLayout>
